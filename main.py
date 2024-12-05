@@ -26,6 +26,9 @@ def draw_pixels(screen):
     for _ in range(10000):
         screen.fill(pygame.Color('white'), (random() * width, random() * height, 10, 2))
 
+def draw_polygon(screen):
+    pygame.draw.polygon(screen, pygame.Color((255, 204, 0)), [(0, 150), (200, 250), (100, 350)])
+
 
 
 if __name__ == '__main__':
@@ -49,6 +52,7 @@ if __name__ == '__main__':
         # RENDER YOUR GAME HERE
         draw1(screen)
         draw_square(screen)
+        draw_polygon(screen)
         draw_pixels(screen)
 
         # flip() the display to put your work on screen
