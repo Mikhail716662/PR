@@ -5,7 +5,7 @@ import pygame
 def draw1(screen):
     screen.fill((0, 0, 0))
     font = pygame.font.Font(None, 50)
-    text = font.render("Hello, PyGame!", True, (100, 255, 100))
+    text = font.render("Hello, PyGame!", True, (255, 204, 0))
     text_x = width // 2 - text.get_width() // 2
     text_y = height // 2 - text.get_height() // 2
     text_w = text.get_width()
@@ -13,6 +13,13 @@ def draw1(screen):
     screen.blit(text, (text_x, text_y))
     pygame.draw.rect(screen, (0, 255, 0), (text_x, text_y, text_w, text_h), 1)
 
+
+def draw_square(screen):
+    color = pygame.Color(50, 150, 50)
+    pygame.draw.rect(screen, color, (20, 20, 100, 100), 0)
+    hsv = color.hsva
+    color.hsva = (hsv[0], hsv[1], hsv[2] + 30, hsv[3] - 0.5)
+    pygame.draw.rect(screen, color, (10, 10, 100, 100), 0)
 
 
 
@@ -36,6 +43,7 @@ if __name__ == '__main__':
 
         # RENDER YOUR GAME HERE
         draw1(screen)
+        draw_square(screen)
 
         # flip() the display to put your work on screen
         pygame.display.flip()
